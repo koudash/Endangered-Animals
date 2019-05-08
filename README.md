@@ -31,8 +31,7 @@ Country Codes : https://countrycode.org/
 
 4.	Data Source
 NY Times:   https://api.nytimes.com/svc/search/v2/articlesearch.json?
-Process
-API calls were made to retrieve NY Times articles of the endangered species.
+Process API calls were made to retrieve NY Times articles of the endangered species.
 
 
 Transform
@@ -40,7 +39,7 @@ Transform
 
 A database was generated for the species scraped from World Wildlife. Any record with missing any of the following information (image url, scientific name, status, population, species description) was dropped.
 
-There were different land regions in the temperature data which could not be identified with any country code. Such as, some of the land regions represented continents instead of countries, some of them have inconsistent names, that did not make sense, were cleaned up. 
+Temperature data with NAN values were dropped. Also, there were different land regions in the temperature data which could not be identified with any country code. Such as, some of the land regions represented continents instead of countries, some of them have inconsistent names, that did not make sense, were cleaned up. 
 
 
 Species habitat was matched with the corresponding country as listed in the country codes data. 
