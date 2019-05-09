@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- |head starts| -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ares</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Bootstrap jQuery and Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- "Sketchy" theme from Bootswatch -->
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+        <!-- Local style CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/style_index.css">
+        <!-- Avoid fake favicon requests -->
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <!-- |head ends| -->
+    </head>
+    <!-- |body starts| -->
+    <body>
+        <!-- ||pg-lyt-container starts|| -->
+        <div id='pg-lyt-container'>
+            <div id='pg-lyt-body'>
+                <div class="container text-white">
+                    <div class="row justify-content-center my-3">
+                        <div class="col-sm-12">
+                            <h3 class='text-warning text-center'>In PROTECTING animals, we are SERIOUS!</h3>
+                            <p class='text-center'>Pure black background is to show respect to our beloved neighbours. We are committed to shrink the list to the happy end not the otherwise.</p>
+                        </div>
+                    </div>
+                    <hr/>                    
+                    <!-- Refer to app.py '/name_request' route to retrieve data -->
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 text-center vertical-left">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class='animal-table'><a class='text-white' href="{{ url_for('name_request', type='African Elephant') }}">African Elephant</a></td>
+                                        <td class='animal-table'><a class='text-white' href="{{ url_for('name_request', type='Black Rhino') }}">Black Rhino</a></td>
+                                        <td class='animal-table'>Common Bottlenose Dolphin</td>
+                                        <td class='animal-table'>Greater Sage-Grouse</td>
+                                        <td class='animal-table'>Loggerhead Turtle</td>
+                                        <td class='animal-table'>Pronghorn</td>
+                                        <td class='animal-table'>Swift Fox</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>African Wild Dog</td>
+                                        <td class='animal-table'>Black Spider Monkey</td>
+                                        <td class='animal-table'>Dugong</td>
+                                        <td class='animal-table'>Green Turtle</td>
+                                        <td class='animal-table'>Macaw</td>
+                                        <td class='animal-table'>Red Panda</td>
+                                        <td class='animal-table'>Tiger</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Albacore Tuna</td>
+                                        <td class='animal-table'>Black-footed Ferret</td>
+                                        <td class='animal-table'>Eastern Lowland Gorilla</td>
+                                        <td class='animal-table'>Hawksbill Turtle</td>
+                                        <td class='animal-table'>Marine Iguana</td>
+                                        <td class='animal-table'>Saola</td>
+                                        <td class='animal-table'>Tree Kangaroo</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Amazon River Dolphin</td>
+                                        <td class='animal-table'>Blue Whale</td>
+                                        <td class='animal-table'>Fin Whale</td>
+                                        <td class='animal-table'>Hector's Dolphin</td>
+                                        <td class='animal-table'>Mountain Plover</td>
+                                        <td class='animal-table'>Sea Lions</td>
+                                        <td class='animal-table'>Vaquita</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Amur Leopard</td>
+                                        <td class='animal-table'>Bluefin Tuna</td>
+                                        <td class='animal-table'>Galapagos Penguin</td>
+                                        <td class='animal-table'>Hippopotamus</td>
+                                        <td class='animal-table'>Narwhal</td>
+                                        <td class='animal-table'>Sei Whale</td>
+                                        <td class='animal-table'>Western Lowland Gorilla</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Arctic Fox</td>
+                                        <td class='animal-table'>Bonobo</td>
+                                        <td class='animal-table'>Ganges River Dolphin</td>
+                                        <td class='animal-table'>Humphead Wrasse</td>
+                                        <td class='animal-table'>North Atlantic Right Whale</td>
+                                        <td class='animal-table'>Skipjack Tuna</td>
+                                        <td class='animal-table'>Whale Shark</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Arctic Wolf</td>
+                                        <td class='animal-table'>Bornean Orangutan</td>
+                                        <td class='animal-table'>Giant Panda</td>
+                                        <td class='animal-table'>Irrawaddy Dolphin</td>
+                                        <td class='animal-table'>Olive Ridley Turtle</td>
+                                        <td class='animal-table'>Snow Leopard</td>
+                                        <td class='animal-table'>White Rhino</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Asian Elephant</td>
+                                        <td class='animal-table'>Bowhead Whale</td>
+                                        <td class='animal-table'>Gray Whale</td>
+                                        <td class='animal-table'>Jaguar</td>
+                                        <td class='animal-table'>Plains Bison</td>
+                                        <td class='animal-table'>Southern rockhopper penguin</td>
+                                        <td class='animal-table'>Yangtze Finless Porpoise</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Beluga</td>
+                                        <td class='animal-table'>Brown Bear</td>
+                                        <td class='animal-table'>Great White Shark</td>
+                                        <td class='animal-table'>Javan Rhino</td>
+                                        <td class='animal-table'>Poison Dart Frog</td>
+                                        <td class='animal-table'>Sumatran Orangutan</td>
+                                        <td class='animal-table'>Yellowfin Tuna</td>
+                                    </tr>
+                                    <tr>
+                                        <td class='animal-table'>Bigeye Tuna</td>
+                                        <td class='animal-table'>Chimpanzee</td>
+                                        <td class='animal-table'>Greater One-Horned Rhino</td>
+                                        <td class='animal-table'>Leatherback Turtle</td>
+                                        <td class='animal-table'>Polar Bear</td>
+                                        <td class='animal-table'>Sumatran Rhino</td>
+                                        <td class='animal-table'></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>                    
+                    <div class="row">
+                        <!-- Animal Image -->
+                        <div class="col-sm-5 text-left mt-5 mb-3">
+                            <p><img class='animal-img' src="{{ qdata.case_completed.Img_url }}" alt="{{ qdata.case_completed.Common_Name }}"></p>
+                        </div>
+                        <!-- NYT url -->
+                        <div class="col-sm-6 text-left mt-5 mb-3">
+                            <h5 class='text-warning text-lg-left'>All about Me in New York Times</h5>
+                        
+                        </div>
+                    </div>                            
+                    <!-- Animal Description -->
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <h5 class='text-warning text-lg-left'>Animal_Fact</h3>
+                            <ul>
+                                <li><h6 class='text-info'>Common Name:&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Common_Name }}</h6></li>
+                                <li><h6 class='text-info'>Other Name:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Other_Name }}</h6></li>
+                                <li><h6 class='text-info'>Scientific Names:&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Sci_Name }}</h6></li>
+                                <li><h6 class='text-info'>Status:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Status }}</h6></li>
+                                <li><h6 class='text-info'>Population:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Population }}</h6></li>
+                                <li><h6 class='text-info'>Native Extant Resident Cntry:<br/>{{ qdata.case_completed.NERC }}</h6></li>
+                                <li><h6 class='text-info'>Native Extant Cntry:<br/>{{ qdata.case_completed.NEC }}</h6></li>
+                                <li><h6 class='text-info'>Description:<br/>{{ qdata.case_completed.Description }}</h6></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <!-- |||pg-lyt-body ends||| -->                 
+            </div>
+            <!-- |||pg-lyt-footer||| -->
+                <div id='pg-lyt-footer'><hr id='hr-footer'>Rice Coding Bootcamp 2019 - Mission to Mars HW by Lei Kang</div>
+        <!-- ||pg-lyt-container ends|| -->        
+        </div>
+    <!-- |body ends| -->
+    </body>        
+</html>
