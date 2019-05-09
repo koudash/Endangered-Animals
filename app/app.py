@@ -59,7 +59,14 @@ def name_request():
     img_url = sp_facts['Species Image URL']    
     
     # Data query and retrival from "articles" Collection
+    a_facts = mongo.db.articles.find({"Species Name":animal})
 
+    # list to store article url data
+    a_list = []
+
+    # Append article urls to "a_list"
+    for article in a_facts:
+        a_list.append(article)
 
     # Data storage in "query_data"
     query_data['Common_Name'] = animal
@@ -71,6 +78,7 @@ def name_request():
     query_data['Population'] = population
     query_data['Description'] = descrip
     query_data['Img_url'] = img_url
+    query_data['Article_url'] = a_list
       
     # Clear intermediate query Collection
     mongo.db.query_im.drop()

@@ -33,7 +33,7 @@ html, body {
 
 .animal-img {
     object-fit: contain;
-    width: 70%;
+    width: 100%;
 }
 
 
