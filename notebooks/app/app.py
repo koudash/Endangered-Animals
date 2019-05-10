@@ -1,6 +1,10 @@
 # flask toolkits
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+import numpy as np
+import json
+import os
+
 
 
 # Create app and pass __name__
@@ -47,26 +51,79 @@ def name_request():
         nec = []
 
     # Data query and retrival from "temp_by_cntry" Collection
-    # temp = {}
-    # for cntry in nerc:
-    #     temp
+    list_tavg = []
+    list_tavg_u = []
+    list_date = []
+    cntry_temp = []
 
+    # List to store country names for both native extant resident or native extant   
+    cntry_list = nerc
+    [cntry_list.append(cntry) for cntry in nec if cntry not in cntry_list]
+    
+    # Loop through "cntry_list"
+    for cntry in cntry_list:
+        q_temp = mongo.db.temp_by_cntry.find({"Cntry": cntry})
+
+        # Loop through each document for iterated country in "cntry_list"
+        for case in q_temp:
+            list_tavg.append(case['Avg Temp'])
+            list_tavg_u.append(case['Avg Temp Uncertainty'])
+            list_date.append(case['Date'])
+
+        # Data structure of final output is list of dictionaries  
+        cntry_temp.append({cntry: [{'Avg_Temp': list_tavg}, {'Avg_Temp_Uncertainty': list_tavg_u},\
+            {'Date': list_date}]})
+
+    # Remove existing "cntry_temp_by_animal.json" before saving new requested data
+    try:
+        os.remove('./output/cntry_temp_by_animal.json')
+    except FileNotFoundError:
+        pass
+    
+    # Save "cntry_temp" as .json file for downloading
+    with open ('./output/cntry_temp_by_animal.json', 'w') as json_file:
+        json.dump(cntry_temp, json_file)
+
+    # Special character appears in "animal"
+    if animal == "Galapagos Penguin":
+        animal = "Galápagos Penguin"
     # Data query and retrival from "species" Collection
-    sp_facts = mongo.db.species.find_one({"Species Name":animal})
-    status = sp_facts["Status"]
-    population = sp_facts["Population"]
-    descrip = sp_facts['Species Description']
-    img_url = sp_facts['Species Image URL']    
+    q_species = mongo.db.species.find_one({"Species Name":animal})
+
+    try:
+        status = q_species["Status"]
+    except:
+        status = np.nan
+    try:
+        population = q_species["Population"]
+    except:
+        population = np.nan
+    try:
+        descrip = q_species['Species Description']
+    except:
+        descrip = np.nan
+    try:
+        img_url = q_species['Species Image URL']
+    except:
+        img_url = np.nan    
     
     # Data query and retrival from "articles" Collection
-    a_facts = mongo.db.articles.find({"Species Name":animal})
+    q_urls = mongo.db.articles.find_one({"endagered_animal":animal})
 
     # list to store article url data
     a_list = []
 
-    # Append article urls to "a_list"
-    for article in a_facts:
-        a_list.append(article)
+    # Append at most 8 article urls to "a_list"
+    try:
+        counter = 0
+        for url in q_urls['url'][0]:
+            if counter <8:
+                counter += 1
+                a_list.append(url)
+            else:
+                break
+    except:
+        a_list = []
 
     # Data storage in "query_data"
     query_data['Common_Name'] = animal
@@ -84,9 +141,9 @@ def name_request():
     mongo.db.query_im.drop()
 
     # Input queried data into "query_im" Collection with the key of "case_completed"
-    query_in ={}
-    query_in["case_completed"] = query_data    
-    mongo.db.query_im.insert_one(query_in) 
+    q_input ={}
+    q_input["case_completed"] = query_data    
+    mongo.db.query_im.insert_one(q_input) 
 
     # Redirect to "/" route after data entry in MongoDB 
     return redirect("/", code=302)
