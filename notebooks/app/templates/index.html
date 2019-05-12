@@ -27,9 +27,9 @@
             <div id='pg-lyt-body'>
                 <div class="container text-white">
                     <div class="row justify-content-center my-3">
-                        <div class="col-sm-12">
-                            <h3 class='text-warning text-center'>In PROTECTING animals, we are SERIOUS!</h3>
-                            <p class='text-center'>Pure black background is to show respect to our beloved neighbours. We are committed to shrink the list to the happy end not the otherwise.</p>
+                        <div class="col-sm-12 text-center text-warning">
+                            <h3>In PROTECTING animals, we are SERIOUS!</h3>
+                            <p>Pure black background is to show respect to our beloved neighbours. We are committed to shrink the list to the happy end not the otherwise.</p>
                         </div>
                     </div>
                     <hr/>                    
@@ -136,30 +136,32 @@
                     <div class="row">
                         <!-- Animal Image -->
                         <div class="col-sm-5 text-left mt-5 mb-3">
-                            <p><img class='animal-img' src="{{ qdata.case_completed.Img_url }}" alt="{{ qdata.case_completed.Common_Name }}"></p>
+                            <p><img class='animal-img' src="{{ qdata.Img_url }}" alt="{{ qdata.Common_Name }}"></p>
                         </div>
                         <!-- NYT url -->
                         <div class="col-sm-7 text-left mt-5 mb-3">
                             <h5 class='text-warning text-lg-left'>Want to Know Me in New York Times?</h5>
-                            {% for url in qdata.case_completed.Article_url %}
+                            <span class="text-info">{% for url in qdata.Article_url %}
                             <p>{{ url }}</p>
-                            {% endfor %}
+                            {% endfor %}</span>
                         </div>
                     </div>                            
                     <!-- Animal Description -->
                     <div class="row">
-                        <div class="col-sm-12 text-left">
+                        <div class="col-sm-12 text-left text-info">
                             <h5 class='text-warning text-lg-left'>Animal_Fact</h3>
                             <ul>
-                                <li><h6 class='text-info'>Common Name:&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Common_Name }}</h6></li>
-                                <li><h6 class='text-info'>Other Name:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Other_Name }}</h6></li>
-                                <li><h6 class='text-info'>Scientific Names:&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Sci_Name }}</h6></li>
-                                <li><h6 class='text-info'>Status:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Status }}</h6></li>
-                                <li><h6 class='text-info'>Population:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.case_completed.Population }}</h6></li>
-                                <li><h6 class='text-info'>Native Extant Resident Country:<br/>{{ qdata.case_completed.NERC }}</h6></li>
-                                <li><h6 class='text-info'>Native Extant Country:<br/>{{ qdata.case_completed.NEC }}</h6></li>
-                                <li><h6 class='text-info'>Description:<br/>{{ qdata.case_completed.Description }}</h6></li>
-                                <li><h6 class='text-info'>Temperature of Extant Country:<br/></h6><p><a class='text-info' href="./output/cntry_temp_by_animal.json">.JSON File Available for Download</a></p></li>
+                                <li><h6>Common Name:&emsp;&emsp;&emsp;&emsp;<span class="text-white">{{ qdata.Common_Name }}</span></h6></li>
+                                <li><h6>Other Name:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.Other_Name }}</h6></li>
+                                <li><h6>Scientific Names:&emsp;&emsp;&emsp;&emsp;{{ qdata.Sci_Name }}</h6></li>
+                                <li><h6>Status:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.Status }}</h6></li>
+                                <li><h6>Population:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.Population }}</h6></li>
+                                <li><h6>Native Extant Resident Country:<br/>{{ qdata.NERC }}</h6></li>
+                                <li><h6>Native Extant Country:<br/>{{ qdata.NEC }}</h6></li>
+                                <li><h6>Description:<br/>{{ qdata.Description }}</h6></li>
+                                <li><h6><a class="text-info" href="/api/temperature" target="_blank">Data for Temperature of Extant Country:</a><br/></h6>
+                                    <p class="text-weight-light">Data format: [{country name:[{Avg_Temp: <span class="text-success">list of data</span>}, {Avg_Temp_Unvertainty: 
+                                        <span class="text-success">list of data</span>}, {Date: <span class="text-success">list of data</span>}]}]</p></li>
                             </ul>
                         </div>
                     </div>
