@@ -1,2 +1,0 @@
-{"_id":{"$oid":"5cc26d5c4d92a77a712f0054"},"vendor":"Dole,","type":"banana","quantity":{"$numberInt":"144"},"ripeness":{"$numberInt":"1"}}
-{"_id":{"$oid":"5cc26d5c4d92a77a712f0055"},"vendor":"Del Monte,","type":"peach","quantity":{"$numberInt":"99"},"ripeness":{"$numberInt":"2"}}
