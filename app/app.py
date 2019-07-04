@@ -78,7 +78,7 @@ def name_request():
     # Append at most 8 article urls to "a_list"
     try:
         counter = 0
-        for url in q_urls['url'][0]:
+        for url in q_urls['url']:
             if counter <8:
                 counter += 1
                 a_list.append(url)
