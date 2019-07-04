@@ -29,7 +29,7 @@
                     <div class="row justify-content-center my-3">
                         <div class="col-sm-12 text-center text-warning">
                             <h3>In PROTECTING animals, we are SERIOUS!</h3>
-                            <p>Pure black background is to show respect to our beloved neighbours. We are committed to shrink the list to the happy end not the otherwise.</p>
+                            <p>Pure black background is to show respect to our beloved neighbours. We are committed to shrink the list to the happy end rather than otherwise.</p>
                         </div>
                     </div>
                     <hr/>                    
@@ -156,13 +156,18 @@
                                 <li><h6>Scientific Names:&emsp;&emsp;&emsp;&emsp;{{ qdata.Sci_Name }}</h6></li>
                                 <li><h6>Status:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.Status }}</h6></li>
                                 <li><h6>Population:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ qdata.Population }}</h6></li>
-                                <li><h6>Native Extant Resident Country:<br/>{{ qdata.NERC }}</h6></li>
-                                <li><h6>Native Extant Country:<br/>{{ qdata.NEC }}</h6></li>
+                                <li><h6>Habitat Country:</h6></li>
+                                    <ul>
+                                        {% for hab_sta in qdata.Habitat %}
+                                        <li class="spacing">{{ hab_sta.cat }}<br><i>{{ hab_sta.cntry_list }}</i></li>
+                                        {% endfor %}
+                                    </ul>  
                                 <li><h6>Description:<br/>{{ qdata.Description }}</h6></li>
                                 <li><h6><a class="text-info" href="/api/temperature" target="_blank">Data for Temperature of Extant Country:</a><br/></h6>
-                                    <p class="text-weight-light">Data format: [{country name:[{Avg_Temp: <span class="text-success">list of data</span>}, {Avg_Temp_Unvertainty: 
-                                        <span class="text-success">list of data</span>}, {Date: <span class="text-success">list of data</span>}]}]</p></li>
-                            </ul>
+                                    <p class="text-weight-light spacing">Data format: [{Animal_Name: <span class="text-success">animal name</span>},
+                                        {Countries: [{<span class="text-success">country:</span>[{Avg_Temp: <span class="text-success">data</span>}, {Avg_Temp_Unvertainty: 
+                                        <span class="text-success">data</span>}, {Date: <span class="text-success">data</span>}]}]}]</p></li>
+                        </ul>
                         </div>
                     </div>
                 </div>

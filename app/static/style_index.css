@@ -52,3 +52,7 @@ hr {
     display: block;
     border: 3px solid orange;
 }
+
+.spacing {
+    letter-spacing: 1px;
+}

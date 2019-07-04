@@ -23,7 +23,7 @@ def index():
 # >>>>>>>>>>> I AM A ROUTE SEPARATOR <<<<<<<<<<< #    
 
 # >>> ROUTE 2 <<< #
-# Define actions for "name_request" route
+# Define actions for "scrape" route
 @app.route('/animal', methods=['GET', 'POST'])
 def name_request():
     
@@ -37,14 +37,24 @@ def name_request():
     q_facts = mongo.db.animal_facts.find_one({"Common_Name":animal})
     other_name = q_facts['Other_Name']
     sci_name = q_facts['Sci_Name']
-    try:
-        nerc = q_facts['Native_Extant_Resident_Cntry']
-    except:
-        nerc = []
-    try:
-        nec = q_facts['Native_Extant_Cntry']
-    except:
-        nec = []
+
+    # List holding names that do not have country info
+    name_exclude = ["_id", "Common_Name", "Sci_Name", "Other_Name"]
+
+    # List to store habitat country data
+    habitat_list = []
+
+    # Category of habitat country (name) from "q_facts"
+    for name in q_facts:
+        if name not in name_exclude:
+
+            # Temporary dictionary to transfer each habitat category data to "habitat_list"
+            habitat_dict = {}
+
+            habitat_dict["cat"] = name
+            habitat_dict["cntry_list"] = q_facts[name]
+
+            habitat_list.append(habitat_dict)
 
     # Special character appears in "animal"
     if animal == "Galapagos Penguin":
@@ -91,8 +101,7 @@ def name_request():
     query_data['Common_Name'] = animal
     query_data['Other_Name'] = other_name
     query_data['Sci_Name'] = sci_name
-    query_data['NERC'] = nerc
-    query_data['NEC'] = nec
+    query_data['Habitat'] = habitat_list
     query_data['Status'] = status
     query_data['Population'] = population
     query_data['Description'] = descrip
@@ -110,7 +119,7 @@ def name_request():
 # >>>>>>>>>>> I AM A ROUTE SEPARATOR <<<<<<<<<<< #
 
 # >>> ROUTE 3 <<< #
-# Define actions for "api" route
+# Define actions for "scrape" route
 @app.route('/api/temperature')
 def api():
     
@@ -119,32 +128,43 @@ def api():
   
     # Retrieve name and extant countries of target animal
     animal = query_data['Common_Name']
-    nerc = query_data['NERC']
-    nec = query_data['NEC']
+
+    # List to store habitat country names for selected animal
+    cntries = []
+
+    # Append unique country name to "cntries"
+    for hab in query_data['Habitat']:
+        [cntries.append(cntry) for cntry in hab["cntry_list"] if cntry not in cntries]
 
     # Data query and retrival from "temp_by_cntry" Collection
-    list_tavg = []
-    list_tavg_u = []
-    list_date = []
-    cntry_temp = []
+    cntry_temp = [{'Animal_Name': animal}]
 
-    # List to store country names for both native extant resident or native extant   
-    cntry_list = nerc
-    [cntry_list.append(cntry) for cntry in nec if cntry not in cntry_list]
 
-    # Loop through "cntry_list"
-    for cntry in cntry_list:
+    cntry_list = []
+
+    # Loop through "cntries"
+    for cntry in cntries:
         q_temp = mongo.db.temp_by_cntry.find({"Cntry": cntry})
+
+        temp_list = []
 
         # Loop through each document for iterated country in "cntry_list"
         for case in q_temp:
-            list_tavg.append(case['Avg Temp'])
-            list_tavg_u.append(case['Avg Temp Uncertainty'])
-            list_date.append(case['Date'])
 
-        # Data structure of final output is list of dictionaries  
-        cntry_temp.append({cntry: [{'Avg_Temp': list_tavg}, {'Avg_Temp_Uncertainty': list_tavg_u},\
-            {'Date': list_date}]})
+            temp_case = {}
+
+            temp_case['Avg_Temp'] = case['Avg Temp']
+            temp_case['Avg_Temp_Uncertainty'] = case['Avg Temp Uncertainty']
+            temp_case['Date'] = case['Date']
+
+            # Collect all temperature data for a specific country
+            temp_list.append(temp_case)
+
+        # Collect temperature of all habitat country data for a specific animal 
+        cntry_list.append({cntry: temp_list})
+
+    # Data structure of final output 
+    cntry_temp.append({'Countries': cntry_list})
    
     return jsonify(cntry_temp)
 # >>>>>>>>>>> I AM A ROUTE SEPARATOR <<<<<<<<<<< #
