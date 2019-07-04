@@ -142,7 +142,7 @@
                         <div class="col-sm-7 text-left mt-5 mb-3">
                             <h5 class='text-warning text-lg-left'>Want to Know Me in New York Times?</h5>
                             <span class="text-info">{% for url in qdata.Article_url %}
-                            <p>{{ url }}</p>
+                            <p><a class= "text-info" href="{{ url }}" target="_blank">{{ url }}</a></p>
                             {% endfor %}</span>
                         </div>
                     </div>                            
