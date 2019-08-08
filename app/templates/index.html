@@ -15,9 +15,10 @@
         <!-- "Sketchy" theme from Bootswatch -->
         <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
         <!-- Local style CSS -->
-        <link rel="stylesheet" type="text/css" href="../static/style_index.css">
-        <!-- Avoid fake favicon requests -->
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_index.css') }}">
+        <!-- Favicon -->
+        <!-- Downloaded from https://www.iucnredlist.org/; Edited by Photoshop -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.png') }}">
     <!-- |head ends| -->
     </head>
     <!-- |body starts| -->
