@@ -1,8 +1,8 @@
 # Project-Proposal
 
-<span><strong>Team Members: *Ehsan Khan*, *Jeff Mackey*, *Lei Kang*, *Saurav Mitra*</strong></span>
+<strong>Team Members: *Ehsan Khan*, *Jeff Mackey*, *Lei Kang*, *Saurav Mitra*</strong>
 
-<p><strong>Extract</strong></p>
+<strong>Extract</strong>
 
 <ol><li><i>Data Source</i><br>
 World Wild Life: https://www.worldwildlife.org/species/directory
@@ -33,7 +33,7 @@ Country names with country code and iso codes were scraped down and saved as ref
 NY Times:   https://developer.nytimes.com/docs/articlesearch-product/1/
 
 <i>Process</i><br>
-API calls were made to retrieve NY Times articles of the endangered species.</li>
+API calls were made to retrieve NY Times articles of the endangered species.</li></ol>
 
 
 Transform
