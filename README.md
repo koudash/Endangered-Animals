@@ -1,37 +1,39 @@
- 
+# Project-Proposal
 
-Team Members:   Ehsan Khan, Jeff Mackey, Lei Kang, Saurav Mitra
+<span><strong>Team Members: *Ehsan Khan*, *Jeff Mackey*, *Lei Kang*, *Saurav Mitra*</strong></span>
 
+<p><strong>Extract</strong></p>
 
-Extract
-
-1.	 Data Source 
+<ol><li><i>Data Source</i><br>
 World Wild Life: https://www.worldwildlife.org/species/directory
 
-Process 
+<i>Process</i><br> 
 Scraped the names of endangered species listed in the multiple web-pages. Went into each of these species page. 
-Extracted the image url, description, scientific name, status of danger and population of these endangered species. 
+Extracted the image url, description, scientific name, status of danger and population of these endangered species.</li> 
 
-2.	Data Source
+<li><i>Data Source</i><br>
 IUCN Red List: https://www.iucnredlist.org/
 
-Process
-The species list scraped from World Wild Life are double-checked with IUCN Red List by animal’s scientific name. Redundant common names with the same scientific name as well as that referred to two scientific names were crossed out. Scientific names were extra terms or typo errors were corrected. Animals’ native extant countries w/o resident were scraped and saved. 
+<i>Process</i><br>
+The species list scraped from World Wild Life are double-checked with IUCN Red List by animal’s scientific name. Redundant common names with the same scientific name as well as that referred to two scientific names were crossed out. Scientific names were extra terms or typo errors were corrected. Animals’ native extant countries w/o resident were scraped and saved.</li> 
 
-3.	Data Source
+<li><i>Data Source</i><br>
 Global Climate Change: https://data.world/data-society/global-climate-change-data
 
-Process
-*.csv files for global land temperatures by country was downloaded.
+<i>Process</i><br>
+*.csv files for global land temperatures by country was downloaded.</li>
 
-4.	Data Source 
+<li><i>Data Source</i><br> 
 Country Codes : https://countrycode.org/
-Country names with country code and iso codes were scraped down and saved as reference to unify names for animal habitat countries as well as those appearing in temperature table.
+ 
+<i>Process</i><br>
+Country names with country code and iso codes were scraped down and saved as reference to unify names for animal habitat countries as well as those appearing in temperature table.</li>
 
-5.	Data Source
+<li><i>Data Source</i><br>
 NY Times:   https://developer.nytimes.com/docs/articlesearch-product/1/
-Process
-API calls were made to retrieve NY Times articles of the endangered species.
+
+<i>Process</i><br>
+API calls were made to retrieve NY Times articles of the endangered species.</li>
 
 
 Transform
