@@ -53,10 +53,15 @@ A non-relational database has been used to load all the cleaned data. We are dea
 <li>Animal fact: Animal common name, Other name, Scientific name, Habitat/Ecology</li>
 <li>Temperature: Country, Average Temperature, Temperature Uncertainty (Time Series data from 1750)</li></ol>
 
-App has been created to visually show the data in html. Link for downloading the temperature data by extant country for each queried animal is available.
-
 Following data analyses can be performed with the database:
 
 <ol><li>Spatial analysis of Endangered Species and population by country can be done.</li>
 <li>Relationship between country temperature and endangered species can be investigated.</li>
 <li>Awareness of endangered species can be estimated by the mention in press, viz. New York Times.</li></ol>
+
+**Visualization**
+
+App has been created to visually show the data in html. Link for downloading the temperature data by extant country for each queried animal is available.
+<img src="./static/images/HTML Screenshot.png" alt="HTML Screenshot">
+
+
